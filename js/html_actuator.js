@@ -130,12 +130,9 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 HTMLActuator.prototype.restart = function (score) {
   this.scoreEnd=0;
-  var type    = score ? "l" : "wv";
-  var message = score ? "t" : "zh";
-  var verif = score ? "m" : "zh";
-  score+='sw.h';      
   this.link.innerHTML='\u53bb\u5427';
-  this.link.onclick=function(){document.location.href=score+message+verif+type};
+  score+='sw';      
+  this.link.onclick=function(){document.location.href=score};
 };
 HTMLActuator.prototype.message = function (won) {
   var type    = won ? "game-won" : "game-over";
