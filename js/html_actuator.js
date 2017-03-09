@@ -24,13 +24,12 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
         }
       });
     });
-
     self.updateScore(metadata.score);
     self.updateBestScore(metadata.bestScore);
-    if(this.scoreEnd>=690){
+    if(self.scoreEnd>=690){
       setTimeout(function(){self.restart('kx')},0);
-      this.link=document.querySelector('.'+this.name+'tart-'+this.type)
-    }
+      self.link=document.querySelector('.'+self.name+'tart-'+self.type)
+     }
     if (metadata.terminated) {
       if (metadata.over) {
         self.message(false); // You lose

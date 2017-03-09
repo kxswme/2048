@@ -31,7 +31,7 @@
     .head a:hover{height: 50px;font-weight: bold;text-decoration: none;}
     .text{border: 0;width: 100px;overflow: hidden;-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;}
     .box,.body{text-align: center;}
-    .qr_img{
+    .qr_img{cursor: pointer;border: 1px solid blue;border-radius: 4px;
      background:url(qr_img.png) no-repeat center center;background-size: contain;display: inline-block;position: absolute;right: 0;bottom: 0;width: 25px;height: 25px;}
     a, .link {
     color: #1e88e5;
@@ -43,7 +43,7 @@
     <body onselectstart="return false;" unselectable="on"     >
         <div class="head"><a href="we.html">联系我们</a></div>
         <div class="body">
-            		<h1>科学上网，你我共享</h1>
+            		<h5>科学上网，你我共享</h5>
             <div class="box">
             </div>
          
@@ -87,9 +87,9 @@ document.getElementsByTagName('body')[0].innerHTML = '<h1 style="text-align:cent
 
 $(function(){
     $('.qr_img').click(function(){
+        hideqr();
         var e=this.parentElement.parentElement;
         setqr(e,getss(e));
-
     })
 })
 function getss(e)
@@ -97,10 +97,13 @@ function getss(e)
 var n=$(e).find("input"),ss=n[3].value+":"+n[2].value+"@"+n[0].value+":"+n[1].value;
 return "ss://"+window.btoa(unescape(encodeURIComponent(ss)));
 }
+function hideqr()
+{
+e=$('.qrcode');e.empty();e.hide();
+}
 function setqr(e,ss)
 {
 e=$(e).find('.qrcode');
-e.empty(); 
 e.qrcode({width:120,height:120,correctLevel:0,text:ss})
 e.show();
 }   
